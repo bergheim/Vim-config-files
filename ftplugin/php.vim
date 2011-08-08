@@ -4,6 +4,8 @@
 " Including PDV
 source ~/.vim/php-doc.vim
 
+let PHP_autoformatcomment = 1
+
 " {{{ Settings
 
 " Auto expand tabs to spaces
@@ -24,7 +26,7 @@ setlocal nowrap
 setlocal formatoptions=qroct
 
 " Use php syntax check when doing :make
-setlocal makeprg=php-5.2\ -l\ %
+setlocal makeprg=php\ -l\ %
 
 " Use errorformat for parsing PHP error output
 setlocal errorformat=%m\ in\ %f\ on\ line\ %l
@@ -70,16 +72,16 @@ inoremap  { {<CR>}<C-O>O
 " Maybe this way in other coding standards
 " inoremap  { <CR>{<CR>}<C-O>O
 
-inoremap [ []<LEFT>
+"inoremap [ []<LEFT>
 
 " Standard mapping after PEAR coding standard
-inoremap ( (  )<LEFT><LEFT>
+"inoremap ( (  )<LEFT><LEFT>
 
 " Maybe this way in other coding standards
 " inoremap ( ( )<LEFT><LEFT> 
 
-inoremap " ""<LEFT>
-inoremap ' ''<LEFT>
+"inoremap " ""<LEFT>
+"inoremap ' ''<LEFT>
 
 " }}} Automatic close char mapping
 

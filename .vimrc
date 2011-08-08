@@ -70,6 +70,7 @@ set showmatch " show matching brackets
 set mat=5 " how many tenths for a sec to blink matches
 set hlsearch
 set incsearch
+set ignorecase
 set so=1 "keep x lines top/bottom for scope
 set novisualbell " don't blink
 set noerrorbells " and don't scream
@@ -273,3 +274,4 @@ let PHP_removeCRwhenUnix = 1
 "" inoremap ( ( )<LEFT><LEFT>
 "
 "inoremap ' ''<LEFT>
+set tabstop=2
