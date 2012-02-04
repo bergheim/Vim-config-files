@@ -3,13 +3,13 @@ set nocompatible " must be first
 let xml_use_xhtml = 1 " xml.vim
 
 " based on http://www.vi-improved.org/vimrc.php
-set t_Co=256 
+set t_Co=256
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 " general
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 source ~/.vim/php-doc.vim
-inoremap <C-u> <Esc> :call PhpDocSingle()<CR>i 
+inoremap <C-u> <Esc> :call PhpDocSingle()<CR>i
 nnoremap <C-u> :call PhpDocSingle()<CR>i
 vnoremap <C-u> :call PhpDocRange()<CR>i
 
@@ -51,11 +51,11 @@ set wildmenu " command line completion in statusbar for commands
 set ruler " always show current position at bottom
 set cmdheight=2
 set number " linenumbers
-"set lz " do not redraw when running macros (much faster) 
+"set lz " do not redraw when running macros (much faster)
 set backspace=2 "make backspace work normal
 "set whichwrap+=<,>,h,l  " backspace and cursor keys wrap to
-"set mouse=a " enable mouse for everything. 
-"set shortmess=atI " shortens messages to avoid 'press a key' prompt 
+"set mouse=a " enable mouse for everything.
+"set shortmess=atI " shortens messages to avoid 'press a key' prompt
 "set report=0 " tell us when anything is changed via :...
 set expandtab " autoexpand tabs to spaces.. ugh
 
@@ -117,7 +117,7 @@ let g:explWinSize=35 " width of 35 pixels
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 " CTags
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
-let Tlist_Sort_Type = "name" " order by 
+let Tlist_Sort_Type = "name" " order by
 let Tlist_Use_Right_Window = 1 " split to the right side of the screen
 "let Tlist_Compart_Format = 1 " show small menu
 "let Tlist_Exist_OnlyWindow = 1 " if you are the last, kill yourself
@@ -136,9 +136,9 @@ let b:match_ignorecase = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Minibuf plugin
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:miniBufExplMapWindowNavVim = 1 
-let g:miniBufExplMapWindowNavArrows = 1 
-let g:miniBufExplMapCTabSwitchBufs = 1 
+let g:miniBufExplMapWindowNavVim = 1
+let g:miniBufExplMapWindowNavArrows = 1
+let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplModSelTarget = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -157,24 +157,24 @@ map <A-i> i <ESC>r " alt-i (normal mode) inserts a single char, and then switche
 "	nmap = insert, map = all, nmap = normal
 
 " tabnew
-":nmap <C-t> :tabnew<cr> 
+":nmap <C-t> :tabnew<cr>
 ":imap <C-t> <ESC>:tabnew<cr>
 
-:nmap <C-Insert> :tabnew<CR> 
-:imap <C-Insert> <ESC>:tabnew<CR> 
+:nmap <C-Insert> :tabnew<CR>
+:imap <C-Insert> <ESC>:tabnew<CR>
 
 " tabnext
-":nmap <C-tab> :tabnext<cr> 
-":map <C-tab> :tabnext<cr> 
-":imap <C-tab> <ESC>:tabnext<cr> 
+":nmap <C-tab> :tabnext<cr>
+":map <C-tab> :tabnext<cr>
+":imap <C-tab> <ESC>:tabnext<cr>
 
 :nmap <a-right> :tabnext<cr>
 :imap <a-right> <ESC>:tabnext<cr>
 
 " tabprevious
-":nmap <C-S-tab> :tabprevious<cr> 
-":imap <C-S-tab> <ESC>:tabprevious<cr>i 
-":map <C-S-tab> :tabprevious<cr> 
+":nmap <C-S-tab> :tabprevious<cr>
+":imap <C-S-tab> <ESC>:tabprevious<cr>i
+":map <C-S-tab> :tabprevious<cr>
 
 :nmap <a-left> :tabprev<cr>
 :imap <a-left> <ESC>:tabprev<cr>
@@ -217,7 +217,7 @@ set tags=./.tags,.tags
         \ :!ctags -f .tags
         \ --langmap="php:+.inc"
         \ -h ".php.inc" -R --totals=yes
-        \ --exclude="\.svn" 
+        \ --exclude="\.svn"
         \ --tag-relative=yes --PHP-kinds=+cf-v <CR>
 
 :map <silent> <f7> :!php %:p<CR>
@@ -275,3 +275,9 @@ let PHP_removeCRwhenUnix = 1
 "
 "inoremap ' ''<LEFT>
 set tabstop=2
+
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+autocmd filetype css setlocal equalprg=csstidy\ -\ --silent=true
+
+" Remove any trailing whitespace that is in the file
+autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
