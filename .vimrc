@@ -8,11 +8,6 @@ set t_Co=256
 " general
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-source ~/.vim/php-doc.vim
-inoremap <C-u> <Esc> :call PhpDocSingle()<CR>i
-nnoremap <C-u> :call PhpDocSingle()<CR>i
-vnoremap <C-u> :call PhpDocRange()<CR>i
-
 filetype on " detect the filetype
 set backspace=indent,eol,start
 filetype plugin indent on
@@ -52,7 +47,6 @@ set ruler " always show current position at bottom
 set cmdheight=2
 set number " linenumbers
 "set lz " do not redraw when running macros (much faster)
-set backspace=4 "make backspace work normal
 "set whichwrap+=<,>,h,l  " backspace and cursor keys wrap to
 "set mouse=a " enable mouse for everything.
 "set shortmess=atI " shortens messages to avoid 'press a key' prompt
