@@ -15,7 +15,7 @@ vnoremap <C-u> :call PhpDocRange()<CR>i
 
 filetype on " detect the filetype
 set backspace=indent,eol,start
-filetype plugin on
+filetype plugin indent on
 set history=150          " keep command line history
 set showcmd             " display incomplete commands
 set hidden              " allow multiple buffers without saving
@@ -52,7 +52,7 @@ set ruler " always show current position at bottom
 set cmdheight=2
 set number " linenumbers
 "set lz " do not redraw when running macros (much faster)
-set backspace=2 "make backspace work normal
+set backspace=4 "make backspace work normal
 "set whichwrap+=<,>,h,l  " backspace and cursor keys wrap to
 "set mouse=a " enable mouse for everything.
 "set shortmess=atI " shortens messages to avoid 'press a key' prompt
@@ -85,16 +85,10 @@ set laststatus=2 " always show the status line
 set ai " autoindent
 set si " smart indent
 set cindent " c-style
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
 set wrap " do wrap lines
-
-" Reads the skeleton php file
-" Note: The normal command afterwards deletes an ugly pending line and  moves
-" the cursor to the middle of the file.
-autocmd BufNewFile *.php 0r ~/.vim/skeleton.php | normal Gdd^[OA^[OA
-au BufRead,BufNewFile *.phps    set filetype=php
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Folding
@@ -212,16 +206,6 @@ map <A-i> i <ESC>r " alt-i (normal mode) inserts a single char, and then switche
 
 set tags=./.tags,.tags
 
-" fixme: should only exec in php-files
-:nmap <silent> <F4>
-        \ :!ctags -f .tags
-        \ --langmap="php:+.inc"
-        \ -h ".php.inc" -R --totals=yes
-        \ --exclude="\.svn"
-        \ --tag-relative=yes --PHP-kinds=+cf-v <CR>
-
-:map <silent> <f7> :!php %:p<CR>
-
 :map <f12> :q!<cr>
 
 set pastetoggle=<f2>
@@ -257,25 +241,6 @@ iab bgc background-color: green;
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Useful abbrevs
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
-let PHP_removeCRwhenUnix = 1
-"let PHP_BracesAtCodeLevel = 1 "Will indent the '{' and '}' at the same level than the code they contain.
-
-" More common in PEAR coding standard
-"inoremap  { {<CR>}<C-O>O
-"" Maybe this way in other coding standards
-"" inoremap  { <CR>{<CR>}<C-O>O
-"
-"inoremap [ []<LEFT>
-"
-"" Standard mapping after PEAR coding standard
-"inoremap ( (  )<LEFT><LEFT>
-"
-"" Maybe this way in other coding standards
-"" inoremap ( ( )<LEFT><LEFT>
-"
-"inoremap ' ''<LEFT>
-set tabstop=2
-
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd filetype css setlocal equalprg=csstidy\ -\ --silent=true
 
